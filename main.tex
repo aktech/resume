@@ -19,7 +19,7 @@
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 
 % adjust the page margins
-\usepackage[scale=0.75]{geometry}
+\usepackage[scale=0.85]{geometry}
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
@@ -50,9 +50,9 @@
 %----------------------------------------------------------------------------------
 \begin{document}
 %\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
-%-----       resume       ---------------------------------------------------------
-\makecvtitle
+%-----       resume       ---------------------------------------------------------%
 
+\makecvtitle
 \section{Education}
 \cventry{2012--Present}{BTech Mathematics \& Computing}{Delhi Technological University}{New Delhi}{\textit{Final Year Undergraduate Student}}{Department of Applied Mathematics}  % arguments 3 to 6 can be left empty
 \cventry{2011}{Senior Secondary School (12th) }{Saint Giri School}{New Delhi}{\textit{All India Senior School Certificate Examination}}{Score 85\%  Batch Rank 1}
@@ -61,31 +61,35 @@
 
 \section{Projects}
 % \subsection{Vocational}
-\cventry{2015 April--Present}{Google Summer of Code 2015}{Python Software Foundation}{SymPy}{}{SymPy is a Python library for symbolic mathematics (Computer Algebra System).\newline{}%
-Working on Equation Solvers:%
-\begin{itemize}%
-\item To make the code more robust, modular, and approachable for developers and;
-\item Implementing:
-  \begin{itemize}%
-  \item Complex Sets (a);
-  \item Linear System solver;
-  \item Transcendental Equation solver;
-  \item Multivariate Equation solver;
-  \item Singularity Finder, etc;
-  \end{itemize}
-\end{itemize}}
+\cventry{2015 April--August}{Google Summer of Code 2015}{Python Software Foundation}{SymPy}{}{SymPy is a Python library for symbolic mathematics (Computer Algebra System).\newline{}%
+Worked on Solvers Module: Improved Mathematical robustness of new solvers module. Implemented Complex Sets: Representing infinite solutions in the argand plane; Linear System solver; Solving general system of equations, Differential Calculus Methods.\newline{}
+}
 
+
+% \subsection{Vocational}
+\cventry{}{DTU Resume Manager Scrapper}{}{}{}{{}%%
+Wrote a Python Script, which automatically logins to the Resume Manager, scraps all the announcements and sends an E-Mail about all the latest updates. Repeats this process every 15 minutes, hosted on the Google App Engine.
+}
 
 \section{Achievements}
 \cvlistitem{Qualified for \textbf{Google Code Jam} 2014 (userid: aktech)}
-\cvlistitem{Ranked in Top 1.1\% candidates out of 1.3 million Candidates in AIEEE-2012}
-\cvlistitem{Ranked 1 in School (Science Batch) in the Senior Secondary (Class 12th ) Examinations 2012.}
+\cvlistitem{Core Developer at SymPy, a Computer Algebra System written in Python, \textbf{20,000+ } monthly Downloads.}
+\cvlistitem{Ranked in Top \textbf{1\%} candidates out of \textbf{1.3 million} Candidates in AIEEE-2012.}
+\cvlistitem{Ranked \textbf{1} in School (Science Batch) in the Senior Secondary (Class 12th ) Examinations 2012.}
+
+
 
 \section{Technical Skills}
-\cvitemwithcomment{Programming Languages}{C/C++, Python}{}
-\cvitemwithcomment{Web Technologies}{HTML/CSS}{}
-\cvitemwithcomment{Platform}{Linux, Ubuntu}{}
-\cvitemwithcomment{Version Control}{Git, Github}{}
+\cvitemwithcomment{Programming Languages}{C, C++, Python}{}
+\cvitemwithcomment{Web Technologies}{HTML and CSS (Basic)}{}
+
+\section{Coursework}
+\vbox{\cventry{}{Computer Science}{Programming and Data Structures, Design and
+Analysis of Algorithms, Computer Organisation and Architecture, Object
+Oriented Programming}{}{}{}}
+\vbox{\cventry{}{Mathematics}{Modern Algebra, Linear Algebra, Discrete Mathematics, Real Analysis, Partial Differential Equations, Probability
+and Statistics}{}{}{}}
+
 
 
 %\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
