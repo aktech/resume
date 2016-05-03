@@ -1,0 +1,285 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deedy - One Page Two Column Resume
+% LaTeX Template
+% Version 1.1 (30/4/2014)
+%
+% Original author:
+% Debarghya Das (http://debarghyadas.com)
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% TODO:
+% 1. Integrate biber/bibtex for article citation under publications.
+% 2. Figure out a smoother way for the document to flow onto the next page.
+% 3. Add styling information for a "Projects/Hacks" section.
+% 4. Add location/address information
+% 5. Merge OpenFont and MacFonts as a single sty with options.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% CHANGELOG:
+% v1.1:
+% 1. Fixed several compilation bugs with \renewcommand
+% 2. Got Open-source fonts (Windows/Linux support)
+% 3. Added Last Updated
+% 4. Move Title styling into .sty
+% 5. Commented .sty file.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Known Issues:
+% 1. Overflows onto second page if any column's contents are more than the
+% vertical limit
+% 2. Hacky space on the first bullet point on the second column.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{deedy-resume-openfont}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lastupdated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\namesection{Amit}{Kumar}{ \urlstyle{same}\url{http://iamit.in} \\
+\href{mailto:dtu.amit@gmail.com}{dtu.amit@gmail.com} | +91 9811522423
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.33\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+
+\subsection{Delhi Tech. University}
+\descript{(Delhi College of Engineering)}
+\descript{Mathematics \& Computing Engineering}
+\location{Expected June 2016 | New Delhi \\ Aggregate: 62.40\%}
+\sectionsep
+
+
+% \descript{BS in Computer Science}
+% \location{Expected May 2014 | Ithaca, NY}
+% Conc. in Software Engineering \\
+% College of Engineering \\
+% Dean's List (All Semesters) \\
+% \location{ Cum. GPA: 3.92 / 4.0 \\
+% Major GPA: 3.94 / 4.0}
+% \sectionsep
+
+\subsection{Saint Giri School}
+\location{Grad. May 2011|  Delhi, India}
+\descript{Batch Rank 1}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Links} 
+Github:// \href{https://github.com/aktech}{\custombold{aktech}} \\
+Web:// \href{http://iamit.in/}{\custombold{iamit.in}} \\
+Blog:// \href{http://iamit.in/blog/}{\custombold{iamit.in/blog}} \\
+LinkedIn://  \href{https://www.linkedin.com/in/iaktech}{\custombold{iaktech}} \\
+Twitter://  \href{https://twitter.com/iaktech}{\custombold{@iaktech}} \\
+Quora://  \href{https://www.quora.com/Amit-Kumar-516}{\custombold{Amit-Kumar-516}}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Coursework}
+% \subsection{Graduate}
+% Advanced Machine Learning \\
+% Open Source Software Engineering \\
+% Advanced Interactive Graphics \\
+% Compilers + Practicum \\
+% Cloud Computing \\
+% \sectionsep
+
+\subsection{Undergraduate}
+Data Structures \\
+Operating Systems \\
+Algorithm Design \& Analysis \\
+Linear Algebra \\
+Object Oriented Programming \\
+Scientific Computing, etc \\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+\subsection{Programming}
+\location{Proficient:}
+Python \textbullet{} C \textbullet{} C++ \\
+\location{Familiar:}
+HTML \textbullet{} CSS
+\subsection{Operating System}
+Linux \textbullet{} Windows
+\subsection{Tools \& Framework}
+Django \textbullet{} Bootstrap \\
+Git \textbullet SublimeText
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     CONFERENCES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conferences}
+\location{International:}
+FOSSASIA 2016, Singapore \\
+\location{National:}
+\textbullet{} Gnome Asia Summit 2016 \\
+\textbullet{} PyDelhi Conference 2016 \\
+\textbullet{} PyCon Indian 2015
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.66\textwidth} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Experience}
+
+\runsubsection{Google Summer of Code 2016}
+\descript{| Mentor }
+\location{Mentor for SymPy Project}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}\item Mentoring two students on the solvers module in SymPy. \href{https://summerofcode.withgoogle.com/projects/#6299625891823616}{[1]}, 
+\href{https://summerofcode.withgoogle.com/projects/#5440294841483264}{[2]}
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Google Summer of Code 2015}
+\descript{| Python Software Foundation (SymPy) }
+\location{May 2015 – Aug 2015}
+\begin{tightemize}
+\item Worked on Solvers Module. Improved Mathematical robustness of new solvers module.
+\item Implemented Complex Sets: Representing infinite solutions in the argand plane;
+\item Linear System solver;
+\item Differential Calculus Methods.\end{tightemize}
+\sectionsep
+
+\runsubsection{SymEngine}
+\descript{| Open Source Contributor}
+\location{April 2015 | Couple of patches}
+\begin{tightemize}
+\item SymEngine is a fast symbolic manipulation library, written in C++. I contributed a couple
+of Patches (Pull Requests) Implemented Inverse Hyperbolic Secant Function.\end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     RESEARCH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{PROJECTS}
+\runsubsection{CodePlay}
+\descript{| Online Code Player}
+Built a Django web application to Compile and Run code using HackerEarth API.
+\sectionsep
+
+\runsubsection{DTU Resume Manager Scraper}
+\descript{Scrapping }
+A Python Script hosted on Google App Engine, which logins to the Resume Manager of Delhi Technological University, scraps latest announcements and sends a mail to all the subscribers. Repeats (Cron) this process every minute.
+\sectionsep
+
+\runsubsection{PyDSA}
+\descript{Python Data Structures \& Algorithms}
+The projects aims to serve as an educational tool for the beginners learning Data Structures and Algorithms through Python. I am mentoring students for Rails Girls Summer of Code 2016 for PyDSA Project.
+
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     AWARDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Awards} 
+\begin{tabular}{rll}
+2016	     & Qualified  & Google Code Jam, Qualification Round.\\
+2015	     & HackerRank  & WorldCup semifinal with a team of two.\\
+2014	     & Qualified  & Google Code Jam, Qualification Round.\\
+2012     & National & Top 1\% out of 1.3 million Candidates in AIEEE.\\
+\end{tabular}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SPEAKING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Speaking}
+\runsubsection{TALKS}
+\begin{tightemize}
+\item Symbolic Computation with SymPy", FOSSASIA 2016, Singapore.\\
+\item Demystifying Python MRO, Ramanujan College, DU.
+\item Symbolic Computation with SymPy using Python", PyDelhi Meetup, CSDS Sarai. (*Selected talks listed)
+\end{tightemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     PUBLICATIONS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Publications} 
+% \renewcommand\refname{\vskip -1.5cm} % Couldn't get this working from the .cls file
+% \bibliographystyle{abbrv}
+% \bibliography{publications}
+% \nocite{*}
+% [1]. SymPy Authors, "SymPy: Symbolic Computing in Python", 2016.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SOCIETIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{Societies} 
+
+% \begin{tabular}{rll}
+% 2014 	& top 12\%ile    & Tau Beta Pi Engineering Honor Society\\
+% 2014   & National   & The Global Leadership and Education Forum (tGELF)\\
+% 2012   &  National  & Golden Key International Honor Society\\
+% 2012   &  National   & National Society of Collegiate Scholars\\
+% \end{tabular}
+% \sectionsep
+
+\end{minipage} 
+\end{document}  \documentclass[]{article}
