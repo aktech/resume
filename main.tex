@@ -1,375 +1,358 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deedy - One Page Two Column Resume
-% LaTeX Template
-% Version 1.1 (30/4/2014)
-%
-% Original author:
-% Debarghya Das (http://debarghyadas.com)
-%
-% Original repository:
-% https://github.com/deedydas/Deedy-Resume
-%
-% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
-%
-% This template uses several fonts not included with Windows/Linux by
-% default. If you get compilation errors saying a font is missing, find the line
-% on which the font is used and either change it to a font included with your
-% operating system or comment the line out to use the default font.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
-% TODO:
-% 1. Integrate biber/bibtex for article citation under publications.
-% 2. Figure out a smoother way for the document to flow onto the next page.
-% 3. Add styling information for a "Projects/Hacks" section.
-% 4. Add location/address information
-% 5. Merge OpenFont and MacFonts as a single sty with options.
-% 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% CHANGELOG:
-% v1.1:
-% 1. Fixed several compilation bugs with \renewcommand
-% 2. Got Open-source fonts (Windows/Linux support)
-% 3. Added Last Updated
-% 4. Move Title styling into .sty
-% 5. Commented .sty file.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% Known Issues:
-% 1. Overflows onto second page if any column's contents are more than the
-% vertical limit
-% 2. Hacky space on the first bullet point on the second column.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------
+% LaTeX Resume for Software Engineers
+% Author : Leslie Cheng
+% License : MIT
+% ICONS: https://www.dtp-transit.jp/books/photoshop4web/dl/Font-Awesome-Cheetsheet-4.3.0.pdf
+%-------------------------------------
 
-\documentclass[]{deedy-resume-openfont}
+\documentclass[letterpaper,12pt]{article}[leftmargin=*]
 
+\usepackage[empty]{fullpage}
+\usepackage{enumitem}
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \usepackage[xetex]{hyperref}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[pdftex]{hyperref}
+\fi
+\usepackage{fontawesome}
+\usepackage[sfdefault,light]{FiraSans}
+\usepackage{anyfontsize}
+\usepackage{xcolor}
+\usepackage{tabularx}
 
-\begin{document}
+%-------------------------------------------------- SETTINGS HERE --------------------------------------------------
+% Header settings
+\def \fullname {Amit Kumar}
+\def \subtitle {}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     LAST UPDATED DATE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\lastupdated
+\def \linkedinicon {\faLinkedin}
+\def \linkedinlink {https://linkedin.com/in/iaktech/}
+\def \linkedintext {/iaktech}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     TITLE NAME
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def \phoneicon {\faPhone}
+\def \phonetext {+44-7904-296-365}
 
+\def \emailicon {\faEnvelope}
+\def \emaillink {mailto:dtu.amit@gmail.com}
+\def \emailtext {dtu.amit@gmail.com}
 
-\namesection{Amit}{Kumar}{ \urlstyle{same}\url{http://iamit.in} \\
-\href{mailto:dtu.amit@gmail.com}{dtu.amit@gmail.com} | +44 7904-296-365
+\def \githubicon {\faGithub}
+\def \githublink {https://github.com/aktech}
+\def \githubtext {/aktech}
+
+\def \websiteicon {\faGlobe}
+\def \websitelink {https://iamit.in/}
+\def \websitetext {iamit.in}
+
+\def \headertype {\doublecol} % \singlecol or \doublecol
+
+% Misc settings
+\def \entryspacing {-0pt}
+
+\def \bulletstyle {\faAngleRight}
+
+% Define colours
+\definecolor{primary}{HTML}{000000}
+\definecolor{secondary}{HTML}{1d3b69}
+\definecolor{accent}{HTML}{263238}
+\definecolor{links}{HTML}{1565C0}
+
+%------------------------------------------------------------------------------------------------------------------- 
+
+% Defines to make listing easier
+\def \linkedin {\linkedinicon \hspace{3pt}\href{\linkedinlink}{\linkedintext}}
+\def \phone {\phoneicon \hspace{3pt}{ \phonetext}}
+\def \email {\emailicon \hspace{3pt}\href{\emaillink}{\emailtext}}
+\def \github {\githubicon \hspace{3pt}\href{\githublink}{\githubtext}}
+\def \website {\websiteicon \hspace{3pt}\href{\websitelink}{\websitetext}}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.1in}
+
+% Define the link colours
+\hypersetup{
+    colorlinks=true,
+    urlcolor=links,
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN ONE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set the margin alignment 
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
 
-\begin{minipage}[t]{0.33\textwidth} 
+%-------------------------
+% Custom commands
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     EDUCATION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Sections
+\renewcommand{\section}[2]{\vspace{5pt}
+  \colorbox{secondary}{\color{white}\raggedbottom\normalsize\textbf{{#1}{\hspace{7pt}#2}}}
+}
 
-\section{Education} 
+% Entry start and end, for spacing
+\newcommand{\resumeEntryStart}{\begin{itemize}[leftmargin=2.5mm]}
+\newcommand{\resumeEntryEnd}{\end{itemize}\vspace{\entryspacing}}
 
-\subsection{Delhi Tech. University}
-\descript{(Delhi College of Engineering)}
-\descript{Bachelor of Technology in Mathematics \& Computing Engineering}
-\location{2012 - 2016 | New Delhi, India }
-\sectionsep
+% Itemized list for the bullet points under an entry, if necessary
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=4.5mm]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
 
-% \descript{BS in Computer Science}
-% \location{Expected May 2014 | Ithaca, NY}
-% Conc. in Software Engineering \\
-% College of Engineering \\
-% Dean's List (All Semesters) \\
-% \location{ Cum. GPA: 3.92 / 4.0 \\
-% Major GPA: 3.94 / 4.0}
-% \sectionsep
+% Resume item
+\renewcommand{\labelitemii}{\bulletstyle}
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
 
-\subsection{Saint Giri School}
-\location{Grad. May 2011|  Delhi, India}
-\descript{Batch Rank 1}
-\sectionsep
+% Entry with title, subheading, date(s), and location
+\newcommand{\resumeEntryTSDL}[4]{
+  \vspace{-1pt}\item[]
+    \begin{tabularx}{0.97\textwidth}{X@{\hspace{60pt}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+      \textit{\color{accent}\small#3} & \textit{\color{accent}\small#4} \\
+    \end{tabularx}\vspace{-6pt}
+}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     LINKS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Entry with title and date(s)
+\newcommand{\resumeEntryTD}[2]{
+  \vspace{-1pt}\item[]
+    \begin{tabularx}{0.97\textwidth}{X@{\hspace{60pt}}r}
+      \textbf{\color{primary}#1} & {\firabook\color{accent}\small#2} \\
+    \end{tabularx}\vspace{-6pt}
+}
 
-\section{Links} 
-Github:// \href{https://github.com/aktech}{\custombold{aktech}} \\
-Web:// \href{http://iamit.in/}{\custombold{iamit.in}} \\
-Blog:// \href{http://iamit.in/blog/}{\custombold{iamit.in/blog}} \\
-LinkedIn://  \href{https://www.linkedin.com/in/iaktech}{\custombold{iaktech}} \\
-Twitter://  \href{https://twitter.com/iaktech}{\custombold{@iaktech}} \\
-Quora://  \href{https://www.quora.com/Amit-Kumar-516}{\custombold{Amit-Kumar-516}}
-\sectionsep
+% Entry for special (skills)
+\newcommand{\resumeEntryS}[2]{
+  \item[]\small{
+    \textbf{\color{primary}#1 }{ #2 \vspace{-6pt}}
+  }
+}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     COURSEWORK
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Double column header
+\newcommand{\doublecol}[6]{
+  \begin{tabularx}{\textwidth}{Xr}
+    {
+      \begin{tabular}[c]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} % You could add a subtitle here
+      \end{tabular}
+    } & {
+      \begin{tabular}[c]{l@{\hspace{1.5em}}l}
+        {\small#4} & {\small#1} \\
+        {\small#5} & {\small#2} \\
+        {\small#6} & {\small#3}
+      \end{tabular}
+    }
+  \end{tabularx}
+}
 
-% \section{Coursework}
-% \subsection{Graduate}
-% Advanced Machine Learning \\
-% Open Source Software Engineering \\
-% Advanced Interactive Graphics \\
-% Compilers + Practicum \\
-% Cloud Computing \\
-% \sectionsep
+% Single column header
+\newcommand{\singlecol}[6]{
+  \begin{tabularx}{\textwidth}{Xr}
+    {
+      \begin{tabular}[b]{l}
+        \fontsize{35}{45}\selectfont{\color{primary}{{\textbf{\fullname}}}} \\
+        {\textit{\subtitle}} % You could add a subtitle here
+      \end{tabular}
+    } & {
+      \begin{tabular}[c]{l}
+        {\small#1} \\
+        {\small#2} \\
+        {\small#3} \\
+        {\small#4} \\
+        {\small#5} \\
+        {\small#6}
+      \end{tabular}
+    }
+  \end{tabularx}
+}
 
-\subsection{Undergraduate}
-Data Structures \\
-Operating Systems \\
-Algorithm Design \& Analysis \\
-Object Oriented Programming \\
-Scientific Computing, etc \\
-\sectionsep
+\begin{document}
+%-------------------------------------------------- BEGIN HERE --------------------------------------------------
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     SKILLS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---------------------------------------------------- HEADER ----------------------------------------------------
 
-\section{Skills}
-\subsection{Programming}
-% \location{Proficient:}
-Python \textbullet{} PHP \\
-% \location{Familiar:}
-C \textbullet{} C++  \textbullet{} Javascript \\ HTML \textbullet{} CSS \textbullet{} \\
-\subsection{Operating System}
-Mac OSX \textbullet{} Linux \textbullet{} Windows
-\subsection{Tools \& Framework}
-Django \textbullet Flask \textbullet Bootstrap
-\\ Git \textbullet Vim 
-\sectionsep
+\headertype{\linkedin}{\github}{\website}{\phone}{\email}{} % Set the order of items here
+\vspace{-10pt} % Set a negative value to push the body up, and the opposite
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     CONFERENCES
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%-------------------------------------------------- EXPERIENCE --------------------------------------------------
+\section{\faPieChart}{Experience}
 
-\section{Conferences}
-\location{International:}
-PyCon UK, PyCon Asia Pacific \\
-FOSSASIA 2016, Singapore \\
-SciPy 2016, Austin, TX \\
-PyGotham 2016, New York \\
-PyCon CZ 2017, Prague \\
-\location{National:}
-\textbullet{} Gnome Asia Summit 2016 \\
-\textbullet{} PyDelhiConf 2017, 2016 \\
-\textbullet{} PyCon India 2016, 2015
-\sectionsep
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Quansight}{May. 2020 -- Present}
+      {Senior Software Engineer}{Remote, London}
+    \resumeItemListStart
+      \resumeItem {Contributed extensively to infrastructure of Nebari an Open science data science platform.}
+      \resumeItem{Algorithms contributed in sgkit for GPU, resulting in 10x performance improvement.}
+      \resumeItem {Worked on various backend client projects in Flask/Django/FastAPI.}
+      \resumeItem {Created a JupyterHub Extension to spawn arbitrary apps like Streamlit, Gradio, Panel etc.}
+      \resumeItem{Contributed to numerous Data Engineering, Data Science Infrastructure, Backend, Finance client problems using tools in PyData Ecosystem like Dask, Numba, RAPIDS, etc.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN TWO
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Cirun.io}{June 2020 -- Present}
+      {Founder \& CEO}{Remote}
+    \resumeItemListStart
+        \resumeItem {Created a CI/CD service to run GitHub Actions on 6 cloud providers including OpenStack.}
+        \resumeItem{Used by 150+ Private and Public Projects, with several paying customers.}
+        % \resumeItem {Tech Stack: Flask, React, Celery, Redis, Cloudflare Workers, K8s, Postgres, Grafana, Metabase}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-\end{minipage} 
-\hfill
-\begin{minipage}[t]{0.66\textwidth} 
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Aire Labs (Contract)}{Jan. 2020 -- Mar. 2020}
+      {Software Engineer}{London, UK}
+    \resumeItemListStart
+      \resumeItem {Designed and implemented client data sharing service and infra for credit assessment system.}
+      \resumeItem{Wrote micro service for client assessment using AWS Lambda.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     EXPERIENCE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Turner \& Townsend (Contract)}{Jan. 2019 -- Dec. 2019}
+      {Software Engineer}{London, UK}
+    \resumeItemListStart
+      \resumeItem {Designed and implemented numerous API's to make construction data accessible to the business.}
+      \resumeItem{Lead the standardization of design and implementation of Data Pipelines using Airflow.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-\section{Experience}
-
-% \runsubsection{Powervault, UK}
-% \descript{| Software Engineer }
-% \location{London, United Kingdom | October 2017 - Present}
-% \vspace{\topsep} % Hacky fix for awkward extra vertical space
-% \begin{tightemize}
-% % \item Visa Status: Tier 1 Exceptional Talent, Valid till 2023
-
-% \item Software Engineer in the Backend of IoT Platform.
-% \end{tightemize}
-% \sectionsep
-
-\runsubsection{Cambridge Medical Robotics}
-\descript{| Software Engineer (Contractor) }
-\location{Cambridge, United Kingdom | June 2018 - Present}
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-% \item Visa Status: Tier 1 Exceptional Talent, Valid till 2023
-
-\item Working on the System Testing for Arm Base Controller of the Surgical Robot.
-\end{tightemize}
-\sectionsep
-
-\runsubsection{The Telegraph}
-\descript{| Data Platform Engineer }
-\location{London, United Kingdom | February 2018 - May 2018}
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-% \item Visa Status: Tier 1 Exceptional Talent, Valid till 2023
-
-\item Created numerous ETL pipelines.
-\item Worked on improving deployment Infrastructure with Jenkins
-\item Standardization of Python Projects, migration of ETL pipeline creation from Python 2 to Python 3, automated creation of new pipelines, to facilitate one-click infrastructure to help developers focus on code rather than infra.
-\end{tightemize}
-\sectionsep
-
-\runsubsection{Zomato}
-\descript{| Software Development Engineer }
-\location{Gurgaon, India | October 2016 - October 2017}
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\item Built pipeline for Image Quality/Classification for processing millions of Photos.
-\item Built Automated creation of Collections of restaurants using Review Highlights
-\item Cuisine Prediction for restaurants using word2vec.
-% \item Built several internal tools.
-\end{tightemize}
-\sectionsep
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Cambridge Medical Robotics (Contract)}{Jun. 2018 -- Dec. 2018}
+      {Software Engineer}{London, UK}
+    \resumeItemListStart
+      \resumeItem {Designed and implemented a System Testing Infrastructure of a component of the Surgical Robot.}
+      \resumeItem {Responsible for Code Review/Mentoring and reporting, diagnosing and fixing software issues in the Robot.}
+      \resumeItem{Lead the standardization of design and implementation of Data Pipelines using Airflow.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
 
-% \runsubsection{HackerEarth}
-% \descript{| Software Engineering Intern | R \& D Team }
-% \location{Bangalore, India | June 2016 - September 2016}
-% \vspace{\topsep} % Hacky fix for awkward extra vertical space
-% \begin{tightemize}
-% % \item Facilitated the collection of standard error logs.
-% \item Wrote an Error Log Parser for C, C++, Python and Java.
-% \item Wrote a Checker for comparing user output with expected output to give appropriate suggestion for frequently occurring cases. 
-% \end{tightemize}
-% \sectionsep
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {The Telegraph}{Feb. 2018 -- May. 2018}
+      {Software Engineer, Data Platform}{London, UK}
+    \resumeItemListStart
+      \resumeItem {Designed and implemented numerous ETL pipelines, improved deployment Infrastructure with Jenkins.}
+      \resumeItem {Improved standardization of Python Projects and lead the migration of Python2 to Python3 for ETL pipelines.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-\runsubsection{Google Summer of Code 2018, 2017, 2016}
-\descript{| Mentor }
-\location{Mentor for SymPy Project}
-\vspace{\topsep} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\item Mentor for the development of solvers in SymEngine. \href{https://summerofcode.withgoogle.com/projects/#4873488388063232}{[1]}, 
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Powervault}{Oct. 2017 -- Feb. 2018}
+      {Software Engineer, Backend}{London, UK}
+    \resumeItemListStart
+      \resumeItem {Integrated external services to control IoT devices and improved usability of client facing dashboards.}
+      \resumeItem{Dockerized the backend stack and implemented CI/CD on GitLab for 1-click test and deploy.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Zomato}{Oct. 2016 -- Oct. 2017}
+      {Software Development Engineer}{Gurgaon, India}
+    \resumeItemListStart
+      \resumeItem {Improved user credibility system and rewrote a rule based spam detection system.}
+      \resumeItem{Created numerous internal dashboards for visualization.}
+      \resumeItem{Wrote data pipeline for image quality prediction and a cuisine predictor using word embeddings.}
+    \resumeItemListEnd
+  \resumeEntryEnd
 
-\item Mentored two students for the development of solvers in SymPy. \href{https://summerofcode.withgoogle.com/projects/#6299625891823616}{[1]}, 
-\href{https://summerofcode.withgoogle.com/projects/#5440294841483264}{[2]}
-\end{tightemize}
-\sectionsep
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Google Summer of Code 2015-2020}{Summer 2015}
+      {Python Software Foundation, SymPy}{Remote}
+    \resumeItemListStart
+      \resumeItem {Improved Mathematical robustness of new equation solvers module in SymPy.}
+      \resumeItem{Implemented Complex Sets: Representing infinite solutions in the argand plane.}
+      \resumeItem{Linear system solver, differential calculus methods.}
+      \resumeItem{Mentored students in Google Summer of Code 2016-2020 under SymPy.}
+    \resumeItemListEnd
+  \resumeEntryEnd
+%-------------------------------------------------- EDUCATION --------------------------------------------------
+\section{\faGraduationCap}{Education}
 
-\runsubsection{Google Summer of Code 2015}
-\descript{| Python Software Foundation (SymPy) }
-\location{May 2015 – Aug 2015}
-\begin{tightemize}
-\item Improved Mathematical robustness of new solvers module.
-\item Implemented Complex Sets: Representing infinite solutions in the argand plane;
-\item Linear System solver, Differential Calculus Methods.\end{tightemize}
-\sectionsep
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Delhi Technological University}{2012 -- 2016}
+      {Bachelor of Technology in Mathematics and Computing Engineering}{New Delhi, India}
+  \resumeEntryEnd
 
-% \runsubsection{Rails Girls Summer of Code 2016}
-% \descript{| PyDSA (SymPy) }
-% \location{May 2015 – Aug 2015}
-% \begin{tightemize}
-% \item Improved Mathematical robustness of new solvers module.
-% \item Implemented Complex Sets: Representing infinite solutions in the argand plane;
-% \item Linear System solver, Differential Calculus Methods.\end{tightemize}
-% \sectionsep
-% \descript{| Python Software Foundation (SymPy) }
-% \location{May 2015 – Aug 2015}
-% \begin{tightemize}
-% \item Improved Mathematical robustness of new solvers module.
-% \item Implemented Complex Sets: Representing infinite solutions in the argand plane;
-% \item Linear System solver, Differential Calculus Methods.\end{tightemize}
-% \sectionsep
+\section{\faBullhorn}{Presentations}
+  \resumeEntryStart
+    \resumeEntryTSDL
+      {Talks and Presentations}{}
+      {Meetups and Conferences}{2016 - 2022}
+          \resumeItemListStart
+    \resumeItem{I have spoken at numerous meetups and conferences, all of them can be seen here:  \href{https://iamit.in/talks}{iamit.in/talks}}
+        \resumeItemListEnd
+  \resumeEntryEnd
+%-------------------------------------------------- PROJECTS --------------------------------------------------
+\section{\faFlask}{Projects}
 
-% \runsubsection{SymEngine}
-% \descript{| Open Source Contributor}
-% \location{April 2015 | Couple of patches}
-% \begin{tightemize}
-% \item SymEngine is a fast symbolic manipulation library, written in C++. I contributed a couple
-% of Patches (Pull Requests) Implemented Inverse Hyperbolic Secant Function.\end{tightemize}
-% \sectionsep
+ \resumeEntryStart
+   \resumeEntryS{\href{https://cirun.io}{cirun.io}} {A service to create Github Actions CI runners on AWS, GCP, Azure, Oracle, OpenStack, DigitalOcean.}
+  \resumeEntryS{\href{https://codecinema.io}{codecinema.io}}{A tool to create and share beautiful images and videos of code.}   
+  \resumeEntryS{\href{https://ufo.camera}{ufo.camera}} {Fetches random images of UFO from National UFO Reporting Center.}
+  \resumeEntryS{\href{https://gitspace.io}{gitspace.io}}{Calculates the storage space occupied by user's public GitHub repositories.}
+ \resumeEntryEnd
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     RESEARCH
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %  \resumeEntryStart
+ %    \resumeEntryTD
+ %      {UFO.Camera}{}
+ %    \resumeItemListStart
+ %      \resumeItem {Random images of UFO from NUFORC, Link: \href{https://ufo.camera}{ufo.camera}}
+ %    \resumeItemListEnd
+ %  \resumeEntryEnd
 
-% \section{PROJECTS}
-% \runsubsection{CodePlay}
-% \descript{| Online Code Player}
-% A Django web application to Compile and Run code using HackerEarth API.
-% \sectionsep
+ %  \resumeEntryStart
+ %    \resumeEntryTD
+ %      {GitSpace}{}
+ %    \resumeItemListStart
+ %      \resumeItem {Know the space occupied by your public repositories.
+ % Link: \href{https://gitspace.io}{gitspace.io}}
+ %    \resumeItemListEnd
+ %  \resumeEntryEnd
 
-% \runsubsection{DTU Resume Manager Scraper}
-% \descript{Scrapping }
-% A Python Script hosted on Google App Engine, which logins to the Resume Manager of Delhi Technological University, scraps latest announcements and sends a mail to all the subscribers. Repeats (Cron) this process every minute.
-% \sectionsep
+ %  \resumeEntryStart
+ %    \resumeEntryTD
+ %      {CodeCinema}{}
+ %    \resumeItemListStart
+ %      \resumeItem {Create and share beautiful images and videos of code. Link: \href{https://codecinema.io}{codecinema.io}}
+ %    \resumeItemListEnd
+ %  \resumeEntryEnd
 
-% \runsubsection{Criclive}
-% \descript{CLI}
-% A command line utility to get real time scores of all the live cricket matches around the world.
+%-------------------------------------------------- PROGRAMMING SKILLS --------------------------------------------------
+\section{\faGears}{Skills}
+ \resumeEntryStart
+  \resumeEntryS{Languages} {Python, JavaScript, HTML/CSS, Bash, Java (Familiar), C, C++ (Familiar)}
+  \resumeEntryS{Tools, Technology \& Platform} {Flask, Django, FastAPI, Docker, K8s, REST API, Git, TDD, Terraform, React, SQL, AWS, GCP, Azure, OpenStack, Nginx, Traefik, Dask, JupyterHub, Pytest, etc}
+ \resumeEntryEnd
 
-% \sectionsep
+\section{\faTrophy}{Honors \& Awards}
+ \resumeEntryStart
+  \resumeEntryS{Exceptional Talent in Technology (Endorsement)} {by Tech City UK (Government of UK)}
+  \resumeEntryS{Financial Aid Award}{Presentation on SymPy at SciPy 2016}
+  \resumeEntryS{SemiFinal}{HackerRank WorldCup coding competition (Team size: 2)}
+ \resumeEntryEnd
 
-% \runsubsection{HashTweet}
-% \descript{PHP application}
-% Twitter API client in PHP to display ReTweets with a particular Hash Tag, using the Slim Framework.
-
-% \sectionsep
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % AWARDS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Awards} 
-\begin{tabular}{rll}
-2016	     & SciPy  & Financial Aid Award\\
-2015	     & HackerRank  & WorldCup semifinal with a team of two.\\
-2014	     & Qualified  & Google Code Jam, Qualification Round.\\
-2012     & National & Top 1\% out of 1.3 million Candidates in AIEEE.\\
-\end{tabular}
-\sectionsep
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     PUBLICATIONS
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Publications} 
-\renewcommand\refname{\vskip -1.5cm} % Couldn't get this working from the .cls file
-\bibliographystyle{abbrv}
-\bibliography{publications}
-\nocite{*}
-[1]. SymPy Authors, "SymPy: Symbolic Computing in Python", 2016. : Peer Journal
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     SPEAKING
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Speaking}
-\runsubsection{Selected Talks}
-\begin{tightemize}
-\item Data Pipelining with Luigi, PyData London Meetup 
-\item Let's Talk About GIL, PyCon CZ, Prague
-\item Introducing MetaClasses, PyCon UK, Cardiff
-\item Demystifying Python MRO, PyGotham 2016, New York, US
-\item Workshop: SymPy Tutorial, SciPy 2016, Austin, US
-\end{tightemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     SOCIETIES
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% \section{Societies} 
-
-% \begin{tabular}{rll}
-% 2014 	& top 12\%ile    & Tau Beta Pi Engineering Honor Society\\
-% 2014   & National   & The Global Leadership and Education Forum (tGELF)\\
-% 2012   &  National  & Golden Key International Honor Society\\
-% 2012   &  National   & National Society of Collegiate Scholars\\
-% \end{tabular}
-% \sectionsep
-
-\end{minipage}
-\newpage
+\section{\faChild}{Open Source Contributions}
+ \resumeEntryStart
+  \resumeItem{Nebari (Core Developer), SymPy (Core Developer), Panel, sgkit, pyflyby, jhub-apps, SymEngine, SymPy-Gamma, Papyri, Dask Gateway, NumPy, Flask-Caching, CPython, pandas-gbp, facebook-prophet, pydsa}
+ \resumeEntryEnd
 \end{document}
