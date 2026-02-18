@@ -2,9 +2,9 @@ name: Build Resume
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
           path: main.pdf
 
       - name: Prepare gh-pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           mkdir -p deploy
           git checkout origin/gh-pages -- index.html params.json stylesheets
@@ -35,7 +35,7 @@ jobs:
           cp main.pdf deploy/Amit_Kumar_CV_F.pdf
 
       - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@47f197a2200bb9de68ba5f48fad1c088eb1c4a32 # v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
