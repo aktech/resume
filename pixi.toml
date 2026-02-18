@@ -1,0 +1,12 @@
+[workspace]
+authors = ["Amit Kumar <aktech@users.noreply.github.com>"]
+channels = ["conda-forge"]
+name = "resume"
+platforms = ["osx-arm64", "linux-64"]
+version = "0.1.0"
+
+[tasks]
+build = "tectonic main.tex"
+
+[dependencies]
+tectonic = ">=0.15.0,<0.16"
