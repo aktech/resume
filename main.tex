@@ -107,9 +107,7 @@
 % Resume item
 \renewcommand{\labelitemii}{\bulletstyle}
 \newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+  \item{\small #1\par}\vspace{-2pt}
 }
 
 % Entry with title, subheading, date(s), and location
@@ -191,11 +189,13 @@
       {Quansight (now OpenTeams)}{May. 2020 -- Present}
       {Staff Software Engineer}{Remote, London}
     \resumeItemListStart
-    \resumeItem{Core maintainer of \textbf{Nebari}, an open-source, Kubernetes-native data-science platform; automated TLS, OIDC across AWS, GCP and Azure.}
-    \resumeItem{Optimised GPU kernels in population-genetics toolkit \textbf{sgkit}, delivering a \textbf{10× speed-up} and cutting cohort-analysis runtimes from hours to minutes (CUDA, Dask, RAPIDS).}
-    \resumeItem{Led backend work on various client services (FastAPI, Flask, Django)}
-    \resumeItem{Built a \textbf{JupyterHub extension} that launches sandboxed Streamlit, Gradio and Panel apps on Kubernetes cluster and local.}
-      \resumeItem{Contributed to numerous Data Engineering, Data Science Infrastructure, Backend, Finance client problems using tools in PyData Ecosystem like Dask, Numba, RAPIDS, etc.}
+    \resumeItem{Core maintainer of \textbf{Nebari}, open-source Kubernetes-native platform providing \textbf{cloud abstractions} over AWS EKS, GCP GKE, and Azure AKS, letting teams ship workloads without cloud-specific code; contributing to the next-gen rewrite in Go, OpenTofu, and ArgoCD.}
+    \resumeItem{Automated TLS provisioning (cert-manager), SSO (Keycloak/OIDC), and RBAC across multi-cloud K8s clusters.}
+    \resumeItem{Built \textbf{jhub-apps}, a JupyterHub extension that launches sandboxed Streamlit, Gradio and Panel apps on Kubernetes.}
+    \resumeItem{Managed cloud infrastructure across AWS, GCP, Azure and OpenStack (GPU servers with NVIDIA V100s, Ansible-based provisioning).}
+    \resumeItem{Led backend work on various client services (FastAPI, Flask, Django).}
+    \resumeItem{Optimised GPU kernels in population-genetics toolkit \textbf{sgkit}, delivering a \textbf{10× speed-up} (CUDA, Dask, RAPIDS).}
+    \resumeItem{Contributed to numerous Data Engineering, Data Science Infrastructure, and Backend client projects using tools in the PyData ecosystem (Dask, Numba, RAPIDS).}
     \resumeItemListEnd
   \resumeEntryEnd
 
@@ -204,10 +204,10 @@
     {Cirun.io}{June 2020 -- Present}
     {Founder \& Principal Engineer}{Remote}
   \resumeItemListStart
-    \resumeItem{Architected a \textbf{multi-cloud CI/CD platform} that transparently schedules GitHub Actions on \textbf{6 providers} (AWS, GCP, Azure, OCI, DigitalOcean, OpenStack) using Celery for task queuing }
-    \resumeItem{Serves over \textbf{100 000+ API requests daily} through \textbf{Cloudflare Workers}}
-    \resumeItem{Built a real-time observability system via Beszel and led a 24×7 on-call rotation, sustaining \textbf{99.9 \%} platform uptime.}
-    \resumeItem{Tech Stack: Python (FastAPI, Celery), Postgres, Redis, Terraform, GitHub Actions API, Cloudflare Workers.}
+    \resumeItem{Built \textbf{core infrastructure} for a multi-cloud CI/CD platform; a \textbf{cloud abstraction layer} over \textbf{7 providers} (AWS, GCP, Azure, OCI, DigitalOcean, OpenStack, Vast.ai) that dynamically provisions ephemeral VMs via native APIs and Terraform.}
+    \resumeItem{Powers GPU CI for \textbf{conda-forge}, one of the largest open-source package ecosystems.}
+    \resumeItem{Implemented observability with \textbf{OpenTelemetry} (Flask + Celery instrumentation, OTLP export) and \textbf{Beszel}; led 24×7 on-call rotation sustaining \textbf{99.99\%} uptime.}
+    \resumeItem{Tech Stack: Python (Flask, Celery), Postgres, Redis, Terraform, Cloudflare Workers, GitHub Actions API.}
   \resumeItemListEnd
 \resumeEntryEnd
 
@@ -216,34 +216,12 @@
       {Contract Software Engineer}{June. 2018 -- Mar. 2020}
       {Software Engineer}{London, UK}
     \resumeItemListStart
-      \resumeItem {Worked as contract Software Engineer for Aire Labs (Fintech), Turner \& Townsend, Cambridge Medical Robotics}
-      \resumeItem {Designed and implemented client data sharing service and infra for credit assessment system.}
-      \resumeItem{Wrote micro service for client assessment using AWS Lambda.}
-      \resumeItem {Designed and implemented numerous API's to make construction data accessible to the business.}
-      \resumeItem{Lead the standardization of design and implementation of Data Pipelines using Airflow.}
-      \resumeItem {Designed and implemented a System Testing Infrastructure of a component of the Surgical Robot.}
-      \resumeItem {Responsible for Code Review/Mentoring and reporting, diagnosing and fixing software issues in the Robot.}
-      \resumeItem{Lead the standardization of design and implementation of Data Pipelines using Airflow.}
+      \resumeItem{Built backend services and APIs for Aire Labs (Fintech), Turner \& Townsend, and Cambridge Medical Robotics.}
+      \resumeItem{Designed data pipelines with Airflow; wrote microservices on AWS Lambda for credit assessment.}
+      \resumeItem{Designed and implemented APIs to make construction data accessible to the business (Turner \& Townsend).}
+      \resumeItem{Built system testing infrastructure for surgical robot; responsible for code review, mentoring and diagnosing software issues (Cambridge Medical Robotics).}
     \resumeItemListEnd
   \resumeEntryEnd
-
-  % \resumeEntryStart
-  %   \resumeEntryTSDL
-  %     {Turner \& Townsend (Contract)}{Jan. 2019 -- Dec. 2019}
-  %     {Software Engineer}{London, UK}
-  %   \resumeItemListStart
-
-  %   \resumeItemListEnd
-  % \resumeEntryEnd
-
-  % \resumeEntryStart
-  %   \resumeEntryTSDL
-  %     {Cambridge Medical Robotics (Contract)}{Jun. 2018 -- Dec. 2018}
-  %     {Software Engineer}{London, UK}
-  %   \resumeItemListStart
-
-  %   \resumeItemListEnd
-  % \resumeEntryEnd
 
 
   \resumeEntryStart
@@ -251,8 +229,8 @@
       {The Telegraph}{Feb. 2018 -- May. 2018}
       {Software Engineer, Data Platform}{London, UK}
     \resumeItemListStart
-      \resumeItem {Designed and implemented numerous ETL pipelines, improved deployment Infrastructure with Jenkins.}
-      \resumeItem {Improved standardization of Python Projects and lead the migration of Python2 to Python3 for ETL pipelines.}
+      \resumeItem{Designed ETL pipelines; improved deployment infrastructure with Jenkins.}
+      \resumeItem{Led Python 2 to 3 migration for ETL pipeline codebase.}
     \resumeItemListEnd
   \resumeEntryEnd
 
@@ -261,8 +239,8 @@
       {Powervault}{Oct. 2017 -- Feb. 2018}
       {Software Engineer, Backend}{London, UK}
     \resumeItemListStart
-      \resumeItem {Integrated external services to control IoT devices and improved usability of client facing dashboards.}
-      \resumeItem{Dockerized the backend stack and implemented CI/CD on GitLab for 1-click test and deploy.}
+      \resumeItem{Integrated external services to control IoT devices and improved client-facing dashboards.}
+      \resumeItem{Dockerized backend stack; implemented CI/CD on GitLab.}
     \resumeItemListEnd
   \resumeEntryEnd
 
@@ -271,9 +249,9 @@
       {Zomato}{Oct. 2016 -- Oct. 2017}
       {Software Development Engineer}{Gurgaon, India}
     \resumeItemListStart
-      \resumeItem {Improved user credibility system and rewrote a rule based spam detection system.}
-      \resumeItem{Created numerous internal dashboards for visualization.}
-      \resumeItem{Wrote data pipeline for image quality prediction and a cuisine predictor using word embeddings.}
+      \resumeItem{Improved user credibility system and rewrote rule-based spam detection system.}
+      \resumeItem{Built data pipeline for image quality prediction and a cuisine predictor using word embeddings.}
+      \resumeItem{Created internal dashboards for analytics and visualization.}
     \resumeItemListEnd
   \resumeEntryEnd
 
@@ -282,10 +260,8 @@
       {Google Summer of Code 2015-2020}{Summer 2015}
       {Python Software Foundation, SymPy}{Remote}
     \resumeItemListStart
-      \resumeItem {Improved Mathematical robustness of new equation solvers module in SymPy.}
-      \resumeItem{Implemented Complex Sets: Representing infinite solutions in the argand plane.}
-      \resumeItem{Linear system solver, differential calculus methods.}
-      \resumeItem{Mentored students in Google Summer of Code 2016-2020 under SymPy.}
+      \resumeItem{Core contributor to SymPy equation solvers; implemented Complex Sets and linear system solver (GSoC 2015, Python Software Foundation).}
+      \resumeItem{Mentored GSoC students 2016--2020.}
     \resumeItemListEnd
   \resumeEntryEnd
 %-------------------------------------------------- EDUCATION --------------------------------------------------
@@ -298,54 +274,15 @@
   \resumeEntryEnd
 
 \section{\faBullhorn}{Presentations}
-  \resumeEntryStart
-    \resumeEntryTSDL
-      {Talks and Presentations}{}
-      {Meetups and Conferences}{2016 - 2022}
-          \resumeItemListStart
-    \resumeItem{I have spoken at numerous meetups and conferences, all of them can be seen here:  \href{https://iamit.in/talks}{iamit.in/talks}}
-        \resumeItemListEnd
-  \resumeEntryEnd
-%-------------------------------------------------- PROJECTS --------------------------------------------------
-\section{\faFlask}{Projects}
-
  \resumeEntryStart
-   \resumeEntryS{\href{https://cirun.io}{cirun.io}} {A service to create Github Actions CI runners on AWS, GCP, Azure, Oracle, OpenStack, DigitalOcean.}
-  \resumeEntryS{\href{https://codecinema.io}{codecinema.io}}{A tool to create and share beautiful images and videos of code.}   
-  \resumeEntryS{\href{https://ufo.camera}{ufo.camera}} {Fetches random images of UFO from National UFO Reporting Center.}
-  \resumeEntryS{\href{https://gitspace.io}{gitspace.io}}{Calculates the storage space occupied by user's public GitHub repositories.}
+  \resumeEntryS{}{20+ conference talks across 8 countries (PyCon, SciPy, JupyterCon, PyData), \href{https://iamit.in/talks}{iamit.in/talks}}
  \resumeEntryEnd
-
- %  \resumeEntryStart
- %    \resumeEntryTD
- %      {UFO.Camera}{}
- %    \resumeItemListStart
- %      \resumeItem {Random images of UFO from NUFORC, Link: \href{https://ufo.camera}{ufo.camera}}
- %    \resumeItemListEnd
- %  \resumeEntryEnd
-
- %  \resumeEntryStart
- %    \resumeEntryTD
- %      {GitSpace}{}
- %    \resumeItemListStart
- %      \resumeItem {Know the space occupied by your public repositories.
- % Link: \href{https://gitspace.io}{gitspace.io}}
- %    \resumeItemListEnd
- %  \resumeEntryEnd
-
- %  \resumeEntryStart
- %    \resumeEntryTD
- %      {CodeCinema}{}
- %    \resumeItemListStart
- %      \resumeItem {Create and share beautiful images and videos of code. Link: \href{https://codecinema.io}{codecinema.io}}
- %    \resumeItemListEnd
- %  \resumeEntryEnd
-
 %-------------------------------------------------- PROGRAMMING SKILLS --------------------------------------------------
 \section{\faGears}{Skills}
  \resumeEntryStart
-  \resumeEntryS{Languages} {Python, JavaScript, HTML/CSS, Bash, Java (Familiar), C, C++ (Familiar)}
-  \resumeEntryS{Tools, Technology \& Platform} {Flask, Django, FastAPI, Docker, K8s, REST API, Git, TDD, Terraform, React, SQL, AWS, GCP, Azure, OpenStack, Nginx, Traefik, Dask, JupyterHub, Pytest, etc}
+  \resumeEntryS{Languages}{Python, Go, JavaScript, Bash, SQL, C/C++ (familiar)}
+  \resumeEntryS{Infrastructure \& Cloud}{Kubernetes (EKS, GKE, AKS) at scale, Terraform, OpenTofu, Helm, ArgoCD, Docker, Ansible, AWS, GCP, Azure, OpenStack, Cloudflare Workers}
+  \resumeEntryS{Backend \& Observability}{Flask, FastAPI, Django, Celery, PostgreSQL, Redis, OpenTelemetry, Keycloak, cert-manager, Nginx, Traefik}
  \resumeEntryEnd
 
 \section{\faTrophy}{Honors \& Awards}
@@ -357,6 +294,6 @@
 
 \section{\faChild}{Open Source Contributions}
  \resumeEntryStart
-  \resumeItem{Nebari (Core Developer), SymPy (Core Developer), Panel, sgkit, pyflyby, jhub-apps, SymEngine, SymPy-Gamma, Papyri, Dask Gateway, NumPy, Flask-Caching, CPython, pandas-gbp, facebook-prophet, pydsa}
+  \resumeItem{Nebari (Core Developer), SymPy (Core Developer), conda-forge, Panel, sgkit, pyflyby, jhub-apps, SymEngine, SymPy-Gamma, Papyri, Dask Gateway, NumPy, Flask-Caching, CPython, pandas-gbp, facebook-prophet, pydsa}
  \resumeEntryEnd
 \end{document}

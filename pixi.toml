@@ -10,3 +10,4 @@ build = "tectonic main.tex"
 
 [dependencies]
 tectonic = ">=0.15.0,<0.16"
+poppler = ">=26.2.0,<27"
